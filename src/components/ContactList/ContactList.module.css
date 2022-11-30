@@ -1,0 +1,25 @@
+.list {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 5px;
+  text-align: center;
+  flex-basis: calc((100% - 120px) / 4);
+  border: solid 1px rgb(126, 100, 45);
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item:not(:nth-child(4n)) {
+  margin-right: 20px;
+}
+
+.item.item:not(:nth-last-child(-n + 4)) {
+  margin-bottom: 20px;
+}

@@ -2,10 +2,6 @@
   padding: 0 40px;
 }
 
-.section:not(:last-child) {
-  padding-top: 40px;
-}
-
 .title {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.5px;

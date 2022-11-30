@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './AddContactButton.module.css';
+import css from './AddButton.module.css';
 
 // To props give type, name, text
 // To props give type, name, text
@@ -12,7 +12,7 @@ export default function AddContactButton({ type, name, text }) {
   );
 }
 
-AddContactButton.proptype = {
+AddContactButton.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   text: PropTypes.string,

@@ -10,6 +10,6 @@ export default function Section({ title, children }) {
   );
 }
 
-Section.proptype = {
+Section.propTypes = {
   title: PropTypes.string,
 };
