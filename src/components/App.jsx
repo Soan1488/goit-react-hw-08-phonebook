@@ -16,13 +16,10 @@ export default class App extends Component {
     filter: '',
   };
 
-  AddNewContact = data => {
+  AddNewContact = ({ name, number }) => {
     this.setState(prevState => {
       return {
-        contacts: [
-          ...prevState.contacts,
-          { id: nanoid(), name: data.name, number: data.number },
-        ],
+        contacts: [...prevState.contacts, { id: nanoid(), name, number }],
       };
     });
   };
@@ -40,24 +37,19 @@ export default class App extends Component {
   };
 
   render() {
+    const { contacts, filter } = this.state;
     return (
       <>
         <Section title="Phonebook">
-          <AddContactForm
-            AddContact={this.AddNewContact}
-            contacts={this.state.contacts}
-          />
+          <AddContactForm AddContact={this.AddNewContact} contacts={contacts} />
         </Section>
-        {this.state.contacts.length > 0 && (
+        {contacts.length > 0 && (
           <Section title="Contacts">
-            <Filter
-              onFilterChange={this.FilterHandle}
-              filterValue={this.state.filter}
-            />
+            <Filter onFilterChange={this.FilterHandle} filterValue={filter} />
 
             <ContactList
-              contacts={this.state.contacts}
-              filter={this.state.filter}
+              contacts={contacts}
+              filter={filter}
               onButtonClick={this.RemoveHandle}
             />
           </Section>

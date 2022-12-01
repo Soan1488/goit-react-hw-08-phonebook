@@ -16,13 +16,14 @@ export default class AddContactForm extends Component {
   };
 
   onSubmit = e => {
+    const { name, number } = this.state;
     e.preventDefault();
-    if (this.props.contacts.find(item => item.name === this.state.name)) {
-      alert(`${this.state.name} is already in contacts`);
+    if (this.props.contacts.find(item => item.name === name)) {
+      alert(`${name} is already in contacts`);
     } else {
       this.props.AddContact({
-        name: this.state.name,
-        number: this.state.number,
+        name: name,
+        number: number,
       });
     }
 
@@ -33,6 +34,7 @@ export default class AddContactForm extends Component {
   };
 
   render() {
+    const { name, number } = this.state;
     return (
       <form className={css.form} onSubmit={this.onSubmit}>
         <label className={css.label}>
@@ -46,7 +48,7 @@ export default class AddContactForm extends Component {
             placeholder="Jane Dou"
             className={css.input}
             onChange={this.ChangeHandle}
-            value={this.state.name}
+            value={name}
           />
         </label>
         <label className={css.label}>
@@ -60,7 +62,7 @@ export default class AddContactForm extends Component {
             placeholder="Your number"
             className={css.input}
             onChange={this.ChangeHandle}
-            value={this.state.number}
+            value={number}
           />
         </label>
         <Button type="submit" name="AddContact" text="Add contact" />
