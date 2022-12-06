@@ -9,7 +9,7 @@ export default class AddContactForm extends Component {
     number: '',
   };
 
-  ChangeHandle = e => {
+  changeHandle = e => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value,
     });
@@ -18,14 +18,11 @@ export default class AddContactForm extends Component {
   onSubmit = e => {
     const { name, number } = this.state;
     e.preventDefault();
-    if (this.props.contacts.find(item => item.name === name)) {
-      alert(`${name} is already in contacts`);
-    } else {
-      this.props.AddContact({
-        name: name,
-        number: number,
-      });
-    }
+
+    this.props.AddContact({
+      name: name,
+      number: number,
+    });
 
     this.setState({
       name: '',
@@ -47,7 +44,7 @@ export default class AddContactForm extends Component {
             required
             placeholder="Jane Dou"
             className={css.input}
-            onChange={this.ChangeHandle}
+            onChange={this.changeHandle}
             value={name}
           />
         </label>
@@ -61,7 +58,7 @@ export default class AddContactForm extends Component {
             required
             placeholder="Your number"
             className={css.input}
-            onChange={this.ChangeHandle}
+            onChange={this.changeHandle}
             value={number}
           />
         </label>
