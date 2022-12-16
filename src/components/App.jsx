@@ -6,16 +6,12 @@ import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    localStorage.getItem('contacts')
+      ? JSON.parse(localStorage.getItem('contacts'))
+      : []
+  );
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    const storageContacts = localStorage.getItem('contacts');
-
-    if (storageContacts) {
-      setContacts(JSON.parse(storageContacts));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
