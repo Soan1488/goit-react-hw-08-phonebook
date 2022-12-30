@@ -1,7 +1,12 @@
+import { getFilter } from 'components/redux/filter/filterSelector';
+import { filtered } from 'components/redux/filter/filterSlice';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './Filter.module.css';
 
-export default function Filter({ onFilterChange, filterValue }) {
+export default function Filter() {
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
   return (
     <>
       <h3 className={css.text}>Find contacts by name</h3>
@@ -10,14 +15,15 @@ export default function Filter({ onFilterChange, filterValue }) {
         name="filter"
         placeholder="Start write name"
         className={css.input}
-        value={filterValue}
-        onChange={onFilterChange}
+        value={filter}
+        onChange={e => {
+          dispatch(filtered(e.currentTarget.value));
+        }}
       />
     </>
   );
 }
 
 Filter.propTypes = {
-  onFilterChange: PropTypes.func,
-  filterValue: PropTypes.string,
+  filter: PropTypes.string,
 };

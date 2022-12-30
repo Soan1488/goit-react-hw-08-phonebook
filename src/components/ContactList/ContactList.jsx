@@ -1,27 +1,33 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 import ContactItem from './ContactItem/ContactItem';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'components/redux/contacts/contactsSelector';
+import { getFilter } from 'components/redux/filter/filterSelector';
 
-export default function ContactList({ contacts, filter, onButtonClick }) {
+export default function ContactList() {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
   const FilteredContacts = contacts.filter(item =>
     item.name.toLowerCase().includes(filter.toLowerCase())
   );
   return (
     <>
-      <ul className={css.list}>
-        {FilteredContacts.map(item => {
-          return (
-            <li key={item.id} className={css.item}>
-              <ContactItem
-                name={item.name}
-                number={item.number}
-                onButtonClick={onButtonClick}
-                id={item.id}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      {contacts.length > 0 && (
+        <ul className={css.list}>
+          {FilteredContacts.map(item => {
+            return (
+              <li key={item.id} className={css.item}>
+                <ContactItem
+                  name={item.name}
+                  number={item.number}
+                  id={item.id}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }
