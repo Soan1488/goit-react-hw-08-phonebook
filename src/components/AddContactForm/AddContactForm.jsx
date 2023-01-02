@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import css from './AddContactForm.module.css';
 import Button from './AddButton/AddButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/redux/contacts/contactsSlice';
-import { nanoid } from '@reduxjs/toolkit';
-import { getContacts } from 'components/redux/contacts/contactsSelector';
+import { addContact } from 'redux/contacts/contactsOperations';
+import { getContacts } from 'redux/contacts/contactsSelector';
 
 export default function AddContactForm() {
   const [name, setName] = useState('');
@@ -30,7 +29,7 @@ export default function AddContactForm() {
     if (isExist) {
       return alert(`${name} is already in contacts`);
     }
-    dispatch(addContact({ id: nanoid(), name, number }));
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };

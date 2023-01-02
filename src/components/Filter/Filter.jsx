@@ -1,5 +1,5 @@
-import { getFilter } from 'components/redux/filter/filterSelector';
-import { filtered } from 'components/redux/filter/filterSlice';
+import { getFilter } from 'redux/filter/filterSelector';
+import { filtered } from 'redux/filter/filterSlice';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Filter.module.css';

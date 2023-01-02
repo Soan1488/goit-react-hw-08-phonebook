@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 import ContactItem from './ContactItem/ContactItem';
-import { useSelector } from 'react-redux';
-import { getContacts } from 'components/redux/contacts/contactsSelector';
-import { getFilter } from 'components/redux/filter/filterSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/contacts/contactsSelector';
+import { getFilter } from 'redux/filter/filterSelector';
+import { useEffect } from 'react';
+import { fetchAllContacts } from 'redux/contacts/contactsOperations';
 
 export default function ContactList() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllContacts());
+  }, [dispatch]);
+
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const FilteredContacts = contacts.filter(item =>

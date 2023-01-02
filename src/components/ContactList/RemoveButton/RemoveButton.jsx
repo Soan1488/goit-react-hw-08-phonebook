@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeContact } from '../../redux/contacts/contactsSlice';
+import { deleteContact } from 'redux/contacts/contactsOperations';
 import css from './RemoveButton.module.css';
 
 export default function RemoveButton({ id }) {
@@ -10,7 +10,7 @@ export default function RemoveButton({ id }) {
       type="button"
       className={css.button}
       onClick={() => {
-        dispatch(removeContact(id));
+        dispatch(deleteContact(id));
       }}
     >
       Delete
