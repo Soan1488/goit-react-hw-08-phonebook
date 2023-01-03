@@ -44,10 +44,12 @@ const contactsSlice = createSlice({
     }),
     [deleteContact.fulfilled]: (state, { payload }) => ({
       ...state,
+      isLoading: false,
       items: state.items.filter(({ id }) => id !== payload.id),
     }),
     [deleteContact.rejected]: (state, { payload }) => ({
       ...state,
+      isLoading: false,
       error: payload,
     }),
     [deleteContact.pending]: state => ({ ...state, isLoading: true }),
