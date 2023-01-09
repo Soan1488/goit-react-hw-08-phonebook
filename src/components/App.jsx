@@ -3,10 +3,16 @@ import Section from './Section/Section';
 import AddContactForm from './AddContactForm/AddContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './Layout/Layout';
 
 export default function App() {
   return (
     <>
+      <Routes>
+        <Route path="/" element={<Layout />}></Route>
+      </Routes>
       <Section title="Phonebook">
         <AddContactForm />
       </Section>
