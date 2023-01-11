@@ -21,3 +21,8 @@ export async function signUpUser(user) {
   const response = await axios.post('/users/signup', user);
   return response;
 }
+
+export async function signInUser(user) {
+  const response = await axios.post('/users/login', user);
+  return response;
+}
