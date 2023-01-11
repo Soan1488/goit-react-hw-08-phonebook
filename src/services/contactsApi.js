@@ -16,3 +16,8 @@ export async function deleteContactApi(id) {
   const response = await axios.delete(`/contacts/${id}`);
   return response.data;
 }
+
+export async function signUpUser(user) {
+  const response = await axios.post('/users/signup', user);
+  return response;
+}

@@ -1,19 +1,18 @@
 import { NavLink } from 'react-router-dom';
+import AuthNav from 'components/AuthNav/AuthNav';
 
 export default function Navigation() {
   return (
     <nav>
       <ul>
         <li>
-          <NavLink>Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink>Contacts</NavLink>
-        </li>
-        <li>
-          <NavLink>Login</NavLink>
+          <NavLink to="/contacts">Contacts</NavLink>
         </li>
       </ul>
+      <AuthNav />
     </nav>
   );
 }
