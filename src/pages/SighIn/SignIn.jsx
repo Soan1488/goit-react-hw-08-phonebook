@@ -35,6 +35,7 @@ export default function SignIn() {
           name="email"
           onChange={changeHandle}
           value={email}
+          required
         />
       </label>
       <label>
@@ -44,6 +45,7 @@ export default function SignIn() {
           name="password"
           onChange={changeHandle}
           value={password}
+          required
         />
       </label>
       <button type="submit">Sign in</button>
