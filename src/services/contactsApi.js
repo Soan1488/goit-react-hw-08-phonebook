@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-const token = {
+export const token = {
   set(token) {
     axios.defaults.headers.common['Authorization'] = token;
   },
@@ -34,7 +34,6 @@ export async function signUpUser(user) {
 
 export async function signInUser(user) {
   const { data } = await axios.post('/users/login', user);
-  console.log(data);
   token.set(data.token);
   return data;
 }
@@ -42,4 +41,9 @@ export async function signInUser(user) {
 export async function loguotUser(token) {
   axios.post('/users/logout');
   token.unset();
+}
+
+export async function fetchCurrentUser() {
+  const { data } = await axios.get('/users/current');
+  return data;
 }

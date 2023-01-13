@@ -18,9 +18,9 @@ export default function SignIn() {
   const changeHandle = ({ target: { value, name } }) => {
     switch (name) {
       case 'email':
-        return setEmail(value);
+        return setEmail(value.trim(' '));
       case 'password':
-        return setPassword(value);
+        return setPassword(value.trim(' '));
       default:
         return;
     }

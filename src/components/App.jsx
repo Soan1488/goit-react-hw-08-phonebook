@@ -7,8 +7,16 @@ import Home from 'pages/Home/Home';
 import Contacts from 'pages/Contacts/Contacts';
 import SignIn from 'pages/SighIn/SignIn';
 import SignUp from 'pages/SighUp/SignUp';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/authOperations';
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

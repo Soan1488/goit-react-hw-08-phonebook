@@ -9,11 +9,10 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
 
   const formHandle = ({ target: { value, name } }) => {
-    console.log(value, name);
     if (name === 'name') {
-      setName(value);
+      setName(value.trim(' '));
     } else if (name === 'email') {
-      setEmail(value);
+      setEmail(value.trim(' '));
     } else if (name === 'password') {
       setPassword(value);
     }
