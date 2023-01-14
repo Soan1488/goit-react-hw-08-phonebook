@@ -1,18 +1,24 @@
 import { Outlet } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import Navigation from 'components/Navigation/Navigation';
+import { Suspense } from 'react';
+// import { Skeleton } from '@mui/material';
+
+import css from './Layout.module.css';
 
 export default function Layout() {
   return (
     <>
-      <header>
+      <header className={css.header}>
         <Container>
           <Navigation />
         </Container>
       </header>
       <main>
         <Container>
-          <Outlet />
+          <Suspense fallback={<></>}>
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
       <footer>

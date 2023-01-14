@@ -1,15 +1,18 @@
 import { ToastContainer } from 'react-toastify';
-
-import { Routes, Route } from 'react-router-dom';
-
-import Layout from './Layout/Layout';
-import Home from 'pages/Home/Home';
-import Contacts from 'pages/Contacts/Contacts';
-import SignIn from 'pages/SighIn/SignIn';
-import SignUp from 'pages/SighUp/SignUp';
+import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
+import { Routes, Route } from 'react-router-dom';
+
+import PrivateRoute from 'redux/auth/PrivateRoute';
+import PublicRoute from 'redux/auth/PublicRoute';
+import Layout from './Layout/Layout';
+
+const Home = lazy(() => import('pages/Home/Home'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
+const SignIn = lazy(() => import('pages/SighIn/SignIn'));
+const SignUp = lazy(() => import('pages/SighUp/SignUp'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -21,10 +24,38 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/login" element={<SignIn />} />
-          <Route path="/register" element={<SignUp />} />
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <Home />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <SignIn />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <SignUp />
+              </PublicRoute>
+            }
+          />
         </Route>
       </Routes>
       <ToastContainer

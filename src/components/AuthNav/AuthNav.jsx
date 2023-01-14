@@ -6,6 +6,7 @@ import { getIsLoggedIn, getUser } from 'redux/auth/authSelector';
 
 export default function AuthNav() {
   const isLoggedIn = useSelector(getIsLoggedIn);
+  // const isLoading = useSelector(getIsLoading);
   const user = useSelector(getUser);
 
   const dispatch = useDispatch();
