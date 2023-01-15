@@ -22,7 +22,11 @@ const authSlice = createSlice({
       isLoggedIn: true,
       token: payload.token,
       user: payload.user,
+      isLoading: false,
     }),
+    [login.pending]: state => {
+      state.isLoading = true;
+    },
     [logout.fulfilled]: state => {
       state.user = { name: null, email: null };
       state.token = null;

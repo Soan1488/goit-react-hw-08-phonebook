@@ -1,10 +1,16 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+
 import Container from 'components/Container/Container';
 import Navigation from 'components/Navigation/Navigation';
-import { Suspense } from 'react';
-// import { Skeleton } from '@mui/material';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import css from './Layout.module.css';
+
+export const override = {
+  display: 'block',
+  margin: '0 auto',
+};
 
 export default function Layout() {
   return (
@@ -16,7 +22,17 @@ export default function Layout() {
       </header>
       <main>
         <Container>
-          <Suspense fallback={<></>}>
+          <Suspense
+            fallback={
+              <ClipLoader
+                color={css.color}
+                size={50}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+                cssOverride={override}
+              />
+            }
+          >
             <Outlet />
           </Suspense>
         </Container>

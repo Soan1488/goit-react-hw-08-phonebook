@@ -4,3 +4,7 @@
   margin-bottom: 20px;
   height: 60px;
 }
+
+.loader {
+  color: var(--prymary-text-color);
+}

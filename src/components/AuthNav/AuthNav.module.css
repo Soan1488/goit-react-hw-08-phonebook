@@ -9,11 +9,11 @@
   font-family: var(--prymary-font-family);
   font-size: var(--header-n-font-size);
   letter-spacing: 0.8px;
-  margin-right: 20px;
+  margin-right: 45px;
 }
 
 .userName {
-  color: rgb(255, 255, 255);
+  color: rgb(224, 194, 22);
   padding-left: 10px;
   text-transform: uppercase;
   font-weight: 600;
@@ -23,10 +23,12 @@
   background-color: inherit;
   border: none;
   font-family: var(--prymary-font-family);
-  font-size: var(--header-n-font-size);
+  font-size: var(--header-l-font-size);
   font-weight: 600;
-  letter-spacing: 1.1px;
+  color: var(--prymary-text-color);
   cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .btn:hover,

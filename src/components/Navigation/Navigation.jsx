@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
+
 import AuthNav from 'components/AuthNav/AuthNav';
+
 import css from './Navigation.module.css';
 
 export default function Navigation() {

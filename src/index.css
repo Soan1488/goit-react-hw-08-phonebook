@@ -19,12 +19,12 @@ code {
   /* Colors*/
   --prymary-bg-color: linear-gradient(
     90deg,
-    rgba(139, 90, 18, 0.7903536414565826) 35%,
-    rgba(198, 151, 107, 0.4654236694677871) 86%
+    rgba(12, 8, 3, 0.7) 20%,
+    rgba(136, 82, 32, 0.7) 90%
   );
   --prymary-hover-color: rgb(255, 255, 255);
-  --prymary-text-color: rgb(39, 33, 23);
-  --prymary-bg-hover-color: rgb(231, 158, 89);
+  --prymary-text-color: rgb(226, 141, 13);
+  --prymary-bg-hover-color: rgb(102, 73, 45);
 
   /* Text*/
   --prymary-font-family: 'Roboto', sans-serif;

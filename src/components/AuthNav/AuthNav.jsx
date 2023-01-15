@@ -1,22 +1,35 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from 'redux/auth/authOperations';
-import { getIsLoggedIn, getUser } from 'redux/auth/authSelector';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { getIsLoading, getIsLoggedIn, getUser } from 'redux/auth/authSelector';
 
 import css from './AuthNav.module.css';
 
 export default function AuthNav() {
   const isLoggedIn = useSelector(getIsLoggedIn);
-  // const isLoading = useSelector(getIsLoading);
+  const isLoading = useSelector(getIsLoading);
   const user = useSelector(getUser);
 
   const dispatch = useDispatch();
   return (
     <div className={css.box}>
-      {isLoggedIn ? (
+      {isLoading ? (
+        <ClipLoader
+          color={css.color}
+          size={20}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+          cssOverride={{
+            display: 'block',
+            margin: '0 250',
+            marginLeft: 'auto',
+          }}
+        />
+      ) : isLoggedIn ? (
         <>
           <p className={css.text}>
-            {`Hello`}
+            {`Welkome`}
             <span className={css.userName}>{user.name}</span>
           </p>
           <button
@@ -35,7 +48,7 @@ export default function AuthNav() {
                 className={({ isActive }) => (isActive ? css.active : css.link)}
                 to="/login"
               >
-                Sigh in
+                Sign in
               </NavLink>
             </li>
             <li className={css.item}>
@@ -43,7 +56,7 @@ export default function AuthNav() {
                 className={({ isActive }) => (isActive ? css.active : css.link)}
                 to="/register"
               >
-                Sigh up
+                Sign up
               </NavLink>
             </li>
           </ul>
