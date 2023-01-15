@@ -16,20 +16,21 @@
 
 .link {
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: rgb(100, 88, 67);
+  font-family: var(--prymary-font-family);
+  font-size: var(--header-l-font-size);
+  font-weight: 400;
+  color: var(--prymary-text-color);
   padding: 5px;
   border-radius: 10px;
 }
 
 .active {
   composes: link;
-  color: rgb(228, 140, 40);
+  color: var(--prymary-hover-color);
 }
 
 .link:hover,
 .link:focus {
   outline-style: none;
-  background-color: rgb(235, 208, 183);
+  background-color: var(--prymary-bg-hover-color);
 }

@@ -1,6 +1,6 @@
 .header {
-  background-color: rgb(241, 221, 202);
-  border-bottom: solid 3px rgb(228, 182, 140);
+  background: var(--prymary-bg-color);
+  border-bottom: solid 3px rgb(94, 61, 32);
   margin-bottom: 20px;
   height: 60px;
 }

@@ -7,10 +7,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(241, 221, 202);
+  background: var(--prymary-bg-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  /* Colors*/
+  --prymary-bg-color: linear-gradient(
+    90deg,
+    rgba(139, 90, 18, 0.7903536414565826) 35%,
+    rgba(198, 151, 107, 0.4654236694677871) 86%
+  );
+  --prymary-hover-color: rgb(255, 255, 255);
+  --prymary-text-color: rgb(39, 33, 23);
+  --prymary-bg-hover-color: rgb(231, 158, 89);
+
+  /* Text*/
+  --prymary-font-family: 'Roboto', sans-serif;
+  --header-l-font-size: 20px;
+  --header-n-font-size: 16px;
+  --header-s-font-size: 14px;
 }
