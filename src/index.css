@@ -22,9 +22,16 @@ code {
     rgba(12, 8, 3, 0.7) 20%,
     rgba(136, 82, 32, 0.7) 90%
   );
+  --secondary-bg-color: linear-gradient(
+    90deg,
+    rgba(235, 196, 149, 0.7) 20%,
+    rgba(184, 117, 54, 0.7) 90%
+  );
   --prymary-hover-color: rgb(255, 255, 255);
   --prymary-text-color: rgb(226, 141, 13);
+  --secondary-text-color: rgb(77, 44, 14);
   --prymary-bg-hover-color: rgb(102, 73, 45);
+  --prymary-border-color: rgb(77, 44, 14);
 
   /* Text*/
   --prymary-font-family: 'Roboto', sans-serif;

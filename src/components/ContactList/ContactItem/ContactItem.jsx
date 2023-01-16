@@ -1,17 +1,15 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+
 import Button from '../RemoveButton/RemoveButton';
-import { getLoading } from 'redux/contacts/contactsSelector';
+
+import css from './ContactItem.module.css';
 
 export default function ContactItem({ name, number, id }) {
-  const loading = useSelector(getLoading);
-  console.log('🚀 ~ loading', loading);
-
   return (
     <>
-      <div>
-        <p>{name}</p>
-        <p>{number}</p>
+      <div className={css.box}>
+        <p className={css.name}>{name}</p>
+        <p className={css.number}>{number}</p>
       </div>
       <Button id={id} />
     </>

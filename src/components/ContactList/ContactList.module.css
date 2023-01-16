@@ -9,7 +9,7 @@
   padding: 5px;
   text-align: center;
   flex-basis: calc((100% - 120px) / 4);
-  border: solid 1px rgb(126, 100, 45);
+  border: solid 1px var(--prymary-border-color);
   height: 80px;
   display: flex;
   justify-content: space-around;

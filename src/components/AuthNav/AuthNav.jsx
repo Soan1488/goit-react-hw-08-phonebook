@@ -15,22 +15,32 @@ export default function AuthNav() {
   return (
     <div className={css.box}>
       {isLoading ? (
-        <ClipLoader
-          color={css.color}
-          size={20}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-          cssOverride={{
-            display: 'block',
-            margin: '0 250',
-            marginLeft: 'auto',
-          }}
-        />
+        <>
+          <ClipLoader
+            color={css.color}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+            cssOverride={{
+              display: 'block',
+              margin: '0',
+              marginLeft: 'auto',
+              marginRight: '150',
+            }}
+          />
+          <button
+            className={css.btn}
+            type="button"
+            onClick={() => dispatch(logout())}
+          >
+            Sign out
+          </button>
+        </>
       ) : isLoggedIn ? (
         <>
           <p className={css.text}>
             {`Welkome`}
-            <span className={css.userName}>{user.name}</span>
+            <span className={css.userName}>{user.email}</span>
           </p>
           <button
             className={css.btn}

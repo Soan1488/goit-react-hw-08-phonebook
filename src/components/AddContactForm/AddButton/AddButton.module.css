@@ -1,17 +1,16 @@
 .button {
   border: none;
   cursor: pointer;
-  background-color: rgb(100, 88, 67);
+  background: var(--prymary-bg-color);
   width: 120px;
   height: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: rgb(228, 140, 40);
+  font-family: var(--prymary-font-family);
+  font-size: var(--header-n-font-size);
+  color: var(--prymary-text-color);
   border-radius: 4px;
 }
 
 .button:hover,
 .button:focus {
-  background-color: rgb(228, 140, 40);
-  color: rgb(100, 88, 67);
+  background-color: var(--prymary-bg-hover-color);
 }

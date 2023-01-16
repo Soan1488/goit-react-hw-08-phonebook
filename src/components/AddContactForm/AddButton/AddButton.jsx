@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import css from './AddButton.module.css';
 
 export default function AddContactButton({ type, name, text }) {

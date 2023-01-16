@@ -1,0 +1,14 @@
+.box {
+  padding: 5px;
+}
+
+.name {
+  font-family: var(--prymary-font-family);
+  font-size: var(--header-n-font-size);
+  color: var(--secondary-text-color);
+}
+
+.number {
+  composes: name;
+  font-size: var(--header-s-font-size);
+}

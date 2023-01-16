@@ -43,7 +43,7 @@ export default function App() {
           <Route
             path="/login"
             element={
-              <PublicRoute restricted>
+              <PublicRoute restricted redirectPath="/contacts">
                 <SignIn />
               </PublicRoute>
             }
@@ -51,7 +51,7 @@ export default function App() {
           <Route
             path="/register"
             element={
-              <PublicRoute restricted>
+              <PublicRoute restricted redirectPath="/contacts">
                 <SignUp />
               </PublicRoute>
             }

@@ -1,0 +1,15 @@
+.box {
+  text-align: center;
+  padding: 40px;
+}
+
+.title {
+  font-family: var(--prymary-font-family);
+  color: var(--secondary-text-color);
+  margin-bottom: 40px;
+}
+
+.text {
+  composes: title;
+  font-size: var(--header-l-font-size);
+}

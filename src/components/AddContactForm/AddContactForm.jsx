@@ -1,23 +1,25 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import css from './AddContactForm.module.css';
-import Button from './AddButton/AddButton';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import Button from './AddButton/AddButton';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { getContacts } from 'redux/contacts/contactsSelector';
+
+import css from './AddContactForm.module.css';
 
 export default function AddContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-  const changeHandle = e => {
-    switch (e.currentTarget.name) {
+  const changeHandle = ({ currentTarget: { name, value } }) => {
+    switch (name) {
       case 'name':
-        setName(e.currentTarget.value);
+        setName(value);
         break;
       case 'number':
-        setNumber(e.currentTarget.value);
+        setNumber(value);
         break;
       default:
     }
