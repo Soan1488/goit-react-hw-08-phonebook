@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 
+import Button from '../../components/Button/Button';
+import Input from 'components/Input/Input';
+
+import css from './SignUp.module.css';
+
 export default function SignUp() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -26,25 +31,44 @@ export default function SignUp() {
     setPassword('');
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className={css.form}>
+      <p className={css.title}>
+        {' '}
+        Please write your name, email and password to sign up
+      </p>
+      <label className={css.label}>
         Name
-        <input type="text" name="name" value={name} onChange={formHandle} />
+        <Input
+          type="text"
+          name="name"
+          value={name}
+          handle={formHandle}
+          required
+          placeholder="Jane Dou"
+        />
       </label>
-      <label>
+      <label className={css.label}>
         Email
-        <input type="email" name="email" value={email} onChange={formHandle} />
+        <Input
+          type="email"
+          name="email"
+          value={email}
+          handle={formHandle}
+          required
+          placeholder="jane111@email.com"
+        />
       </label>
-      <label>
+      <label className={css.label}>
         Password
-        <input
+        <Input
           type="password"
           name="password"
           value={password}
-          onChange={formHandle}
+          handle={formHandle}
+          required
         />
       </label>
-      <button type="submit">Sign up</button>
+      <Button type="submit" text="Sign Up" cssClass="add" />
     </form>
   );
 }

@@ -3,17 +3,17 @@
 }
 
 .title {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--prymary-font-family);
   letter-spacing: 0.5px;
   line-height: 1.3;
-  font-size: 26px;
-  color: rgb(100, 88, 67);
+  font-size: var(--header-l-font-size);
+  color: var(--secondary-text-color);
   position: relative;
 }
 
 .title::after {
   content: '';
-  background-color: rgb(228, 140, 40);
+  background-color: rgb(226, 141, 13);
   height: 2px;
   width: 35px;
   border-radius: 1px;

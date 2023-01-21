@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
 
+import Button from 'components/Button/Button';
+import Input from 'components/Input/Input';
+
+import css from './SignIn.module.css';
+
 export default function SignIn() {
   const dispatch = useDispatch();
 
@@ -27,28 +32,31 @@ export default function SignIn() {
   };
 
   return (
-    <form onSubmit={formHandle}>
-      <label>
+    <form onSubmit={formHandle} className={css.form}>
+      <p className={css.title}>
+        Please write your email and password to log in
+      </p>
+      <label className={css.label}>
         Email{' '}
-        <input
+        <Input
           type="email"
           name="email"
-          onChange={changeHandle}
+          handle={changeHandle}
           value={email}
           required
         />
       </label>
-      <label>
+      <label className={css.label}>
         Password{' '}
-        <input
+        <Input
           type="password"
           name="password"
-          onChange={changeHandle}
+          handle={changeHandle}
           value={password}
           required
         />
       </label>
-      <button type="submit">Sign in</button>
+      <Button type="submit" text="Sign In" cssClass="add" />
     </form>
   );
 }

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
-import Button from './AddButton/AddButton';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { getContacts } from 'redux/contacts/contactsSelector';
 
 import css from './AddContactForm.module.css';
+import Input from 'components/Input/Input';
+import Button from '../Button/Button';
 
 export default function AddContactForm() {
   const [name, setName] = useState('');
@@ -39,7 +39,7 @@ export default function AddContactForm() {
     <form className={css.form} onSubmit={onSubmit}>
       <label className={css.label}>
         <span className={css.text}>Name</span>
-        <input
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,13 +47,13 @@ export default function AddContactForm() {
           required
           placeholder="Jane Dou"
           className={css.input}
-          onChange={changeHandle}
+          handle={changeHandle}
           value={name}
         />
       </label>
       <label className={css.label}>
         <span className={css.text}>Number</span>
-        <input
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -61,22 +61,16 @@ export default function AddContactForm() {
           required
           placeholder="Your number"
           className={css.input}
-          onChange={changeHandle}
+          handle={changeHandle}
           value={number}
         />
       </label>
-      <Button type="submit" name="AddContact" text="Add contact" />
+      <Button
+        type="submit"
+        name="AddContact"
+        text="Add contact"
+        cssClass="add"
+      />
     </form>
   );
 }
-
-AddContactForm.propTypes = {
-  AddContact: PropTypes.func,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      number: PropTypes.string,
-    })
-  ),
-};

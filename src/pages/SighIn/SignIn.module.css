@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: solid 1px;
+  max-width: 350px;
+  padding: 15px;
+  margin-top: 150px;
+}
+
+.title {
+  font-family: var(--prymary-font-family);
+  font-size: var(--header-n-font-size);
+  color: var(--secondary-text-color);
+  margin-top: 0;
+  text-align: center;
+}
+
+.label {
+  font-family: var(--prymary-font-family);
+  font-size: var(--header-n-font-size);
+  color: var(--secondary-text-color);
+  margin-bottom: 15px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}

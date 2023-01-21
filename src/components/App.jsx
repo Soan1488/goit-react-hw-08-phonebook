@@ -1,4 +1,5 @@
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -59,7 +60,7 @@ export default function App() {
         </Route>
       </Routes>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

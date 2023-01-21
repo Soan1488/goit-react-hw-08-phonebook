@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import Container from 'components/Container/Container';
 import Navigation from 'components/Navigation/Navigation';
-import ClipLoader from 'react-spinners/ClipLoader';
 
 import css from './Layout.module.css';
 

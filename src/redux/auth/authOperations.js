@@ -1,41 +1,52 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
 import {
   signUpUser,
   signInUser,
   loguotUser,
   fetchCurrentUser,
+  token,
 } from 'services/contactsApi';
-import { token } from 'services/contactsApi';
 
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const data = await signUpUser(credentials);
-    console.log('data', data);
-    return data;
-  } catch (error) {
-    return error.message;
-    //🟨TODO add logic for error
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const data = await signUpUser(credentials);
+      return data;
+    } catch (error) {
+      toast.error('Something goes wrong, please try again');
+      return rejectWithValue();
+    }
   }
-});
+);
 
-export const login = createAsyncThunk('auth/login', async credentials => {
-  try {
-    const data = await signInUser(credentials);
-    return data;
-  } catch (error) {
-    return error.message;
-    //🟨TODO add logic for error
+export const login = createAsyncThunk(
+  'auth/login',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const data = await signInUser(credentials);
+      return data;
+    } catch (error) {
+      toast.error('Something goes wrong, please try again');
+      return rejectWithValue();
+    }
   }
-});
+);
 
-export const logout = createAsyncThunk('auth/logout', async () => {
-  try {
-    await loguotUser();
-  } catch (error) {
-    return error.message;
-    //🟨TODO add logic for error
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await loguotUser(token);
+      return;
+    } catch (error) {
+      toast.error('Something goes wrong, please try again');
+      return rejectWithValue();
+    }
   }
-});
+);
 
 export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
@@ -49,8 +60,8 @@ export const refreshUser = createAsyncThunk(
       const data = await fetchCurrentUser();
       return data;
     } catch (error) {
-      return error;
-      //🟨TODO add logic for error
+      toast.error('Something goes wrong, please log in');
+      return rejectWithValue();
     }
   }
 );

@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logout } from 'redux/auth/authOperations';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { getIsLoading, getIsLoggedIn, getUser } from 'redux/auth/authSelector';
+
+import { logout } from 'redux/auth/authOperations';
 
 import css from './AuthNav.module.css';
 
